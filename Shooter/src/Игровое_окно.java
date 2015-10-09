@@ -7,7 +7,7 @@ public class Игровое_окно extends JFrame{
 
 public Игровое_окно(){
 
-int MainScale = 80;
+int MainScale = 80; 
 Dimension Beg_Size_Main_Win = new Dimension( 1200 ,800) ;
 int MainTitleHeight = 30;
 

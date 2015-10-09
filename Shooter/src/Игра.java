@@ -1,5 +1,5 @@
 
-public class Игра {
+public class Игра { 
 
 	public static void main(String[] args) {
 		

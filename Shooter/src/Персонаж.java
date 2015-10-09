@@ -52,7 +52,7 @@ y = h;
 public void paint (Graphics g) {
 	
 int p_x = (int) x * Scale / 100;
-int p_y = (int) y * Scale / 100;
+int p_y = (int) y * Scale / 100; 
 int p_w = (int) width  * Scale / 100;
 int p_h = (int)  height  * Scale / 100;
 

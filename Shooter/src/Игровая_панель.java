@@ -190,7 +190,7 @@ g.drawImage(background, 0, 0, currWidth, currHeight, null, null);
 g.drawRect(0, 0, currWidth, currHeight );
 
 
-//bullet.paint(g);
+//bullet.paint(g); 
 
 //bullet2.paint(g);
 
