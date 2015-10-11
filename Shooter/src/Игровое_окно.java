@@ -1,5 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Window;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
@@ -8,7 +10,7 @@ public class Игровое_окно extends JFrame{
 public Игровое_окно(){
 
 int MainScale = 80; 
-Dimension Beg_Size_Main_Win = new Dimension( 1200 ,800) ;
+Dimension Beg_Size_Main_Win = new Dimension(1200 ,800) ;
 int MainTitleHeight = 30;
 
 
@@ -19,6 +21,8 @@ setTitle("Штурм!(версия 1.0)");
 add(panel);
 
 addKeyListener(panel);
+addMouseMotionListener(panel);
+
 
 
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,6 +34,7 @@ setLocationRelativeTo(null);
 
 setVisible(true);
 
+//panel.setFocusCycleRoot(true);
 }
 
 }

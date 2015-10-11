@@ -8,6 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -16,7 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Игровая_панель extends JPanel implements KeyListener, ActionListener {
+public class Игровая_панель extends JPanel implements KeyListener, ActionListener, MouseMotionListener {
 	
 int MainScale;
 Dimension Beg_Size_Main_Win;
@@ -42,6 +45,8 @@ boolean mybullet_started;
 boolean sight_started;
 
 boolean r_s;
+
+Target target;
 
 Персонаж gun;
 
@@ -143,7 +148,7 @@ else {JOptionPane.showMessageDialog(null, "Жаль, но такого оружия нет!!!");
 System.exit(0);
 return;
 }
-curr_x = 400;
+curr_x = 500;
 curr_y = 500;
 
 
@@ -167,7 +172,9 @@ reload = new Персонаж(name_reload_gun, 80, 120, MainScale);
 
 //explosion = new Персонаж("explosion-1.png", 1000, 1000);
 
-gun = new Персонаж(name_main_gun, curr_x, curr_y, MainScale );
+gun = new Персонаж(name_main_gun, 500, 400, MainScale);
+
+target = new Target(curr_x, curr_y, MainScale );
 
 Timer t = new Timer(33, this);
 
@@ -202,8 +209,9 @@ terror2.paint(g);
 
 terror3.paint(g);
 
-gun.paint(g);
+target.paint(g);
 
+gun.paint(g);
 
 //explosion.paint(g);
 if(sight_started == true) 
@@ -271,7 +279,7 @@ number_gun = JOptionPane.showInputDialog("Выберите оружие (1-5)");
 
 if(key.getKeyCode()== 38){
 
-gun.offset(0, -15);	
+target.offset(0, -15);	
 	
 }
 
@@ -283,19 +291,19 @@ mybullet_started = true;
 
 if(key.getKeyCode()== 37){
 
-gun.offset(-15, 0);	
+target.offset(-15, 0);	
 	
 }
 
 if(key.getKeyCode()== 39){
 
-gun.offset(15, 0);	
+target.offset(15, 0);	
 	
 }
 
 if(key.getKeyCode()== 40){
 
-gun.offset(0, 15);	
+target.offset(0, 15);	
 
 }
 
@@ -334,7 +342,7 @@ public void keyReleased(KeyEvent key) {
 	mybullet_started = false;
 	
 	}
-}
+}       
 
 //}
 
@@ -449,5 +457,23 @@ points ++;
 repaint();
 
 }
+
+@Override
+public void mouseDragged(MouseEvent e) {
+	
+}
+
+@Override
+public void mouseMoved(MouseEvent e) {
+	// TODO Auto-generated method stub
+	int m_x = e.getX();
+	int m_y = e.getY();
+	target.setXY(m_x, m_y);
+	
+	gun.setX(m_x);
+	gun.setY( Beg_Size_Main_Win.height);
+}
+
+
 
 }
